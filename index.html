@@ -1,0 +1,549 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mama's Kitchen | Delicious Food</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fffaf3;
+            color: #30251f;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background-color: #fff;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #e65b36;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #30251f;
+            margin-left: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #e65b36;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 540px;
+            display: flex;
+            align-items: center;
+            padding: 70px 8%;
+            background:
+                linear-gradient(90deg, rgba(35,24,17,0.85), rgba(35,24,17,0.15)),
+                url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1800&q=85");
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-content .tag {
+            color: #ffd166;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 68px);
+            line-height: 1.15;
+            margin: 18px 0;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #e65b36;
+            color: white;
+            padding: 13px 28px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #bd3f20;
+            transform: translateY(-2px);
+        }
+
+        /* GENERAL SECTIONS */
+        section {
+            padding: 75px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title span {
+            color: #e65b36;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-top: 8px;
+        }
+
+        /* ABOUT */
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-image,
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 370px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 12px 12px 0 #ffd166;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 18px;
+        }
+
+        .about-text p {
+            color: #71645b;
+            margin-bottom: 18px;
+        }
+
+        .about-text .highlight {
+            color: #e65b36;
+            font-weight: bold;
+        }
+
+        /* MENU */
+        .menu {
+            background: #fff0df;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .menu-info {
+            padding: 22px;
+        }
+
+        .menu-heading {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .menu-heading h3 {
+            font-size: 19px;
+        }
+
+        .price {
+            color: #e65b36;
+            font-size: 19px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .menu-info p {
+            color: #71645b;
+            font-size: 14px;
+        }
+
+        /* CONTACT BANNER */
+        .contact-banner {
+            text-align: center;
+            background: #e65b36;
+            color: white;
+            padding: 55px 8%;
+        }
+
+        .contact-banner h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .contact-banner p {
+            margin-bottom: 22px;
+        }
+
+        .contact-banner .btn {
+            background: white;
+            color: #e65b36;
+        }
+
+        .contact-banner .btn:hover {
+            background: #fff0df;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #30251f;
+            color: #f8e9db;
+            text-align: center;
+            padding: 35px 8%;
+        }
+
+        footer h2 {
+            color: #ffd166;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            margin: 6px 0;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #ffd166;
+            text-decoration: none;
+        }
+
+        footer .copyright {
+            margin-top: 22px;
+            padding-top: 18px;
+            border-top: 1px solid #57473d;
+            color: #c5b6aa;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 900px) {
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 12px;
+                padding: 15px 5%;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            nav {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0;
+                font-size: 14px;
+            }
+
+            .hero {
+                min-height: 480px;
+                padding: 55px 6%;
+            }
+
+            section {
+                padding: 55px 6%;
+            }
+
+            .about {
+                flex-direction: column;
+            }
+
+            .about-image,
+            .about-text {
+                width: 100%;
+            }
+
+            .about-image img {
+                height: 280px;
+            }
+
+            .section-title h2,
+            .about-text h2 {
+                font-size: 29px;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-card img {
+                height: 230px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">🍴 Mama's Kitchen</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#menu">Menu</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="tag">Fresh • Tasty • Homemade</p>
+
+            <h1>Good Food.<br>Good Mood.</h1>
+
+            <p>
+                Welcome to Mama's Kitchen, where every meal is made
+                with love, fresh ingredients, and a little taste of home.
+            </p>
+
+            <a href="#menu" class="btn">Explore Our Menu →</a>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+
+        <div class="about-image">
+            <img
+                src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=900&q=85"
+                alt="Fresh ingredients prepared in a kitchen">
+        </div>
+
+        <div class="about-text">
+            <p class="highlight">A LITTLE ABOUT US</p>
+
+            <h2>Made with Love, Served with Joy ❤️</h2>
+
+            <p>
+                At Mama's Kitchen, we believe great food brings people
+                together. Our journey started with a simple passion:
+                serving delicious meals that make everyone feel at home.
+            </p>
+
+            <p>
+                From fresh ingredients to carefully prepared recipes,
+                every dish is made with quality, flavor, and happiness
+                in mind. Come hungry and leave with a smile!
+            </p>
+
+            <a href="#menu" class="btn">Discover Our Food</a>
+        </div>
+
+    </section>
+
+    <!-- MENU SECTION -->
+    <section class="menu" id="menu">
+
+        <div class="section-title">
+            <span>Our Specialties</span>
+            <h2>Explore Our Menu 🍽️</h2>
+            <p>Delicious favorites, freshly prepared just for you.</p>
+        </div>
+
+        <div class="menu-grid">
+
+            <!-- ITEM 1 -->
+            <div class="menu-card">
+                <img
+                    src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+                    alt="Juicy beef burger">
+                <div class="menu-info">
+                    <div class="menu-heading">
+                        <h3>Classic Burger</h3>
+                        <span class="price">$8.99</span>
+                    </div>
+                    <p>Juicy beef, fresh lettuce, tomato, cheese, and our special sauce.</p>
+                </div>
+            </div>
+
+            <!-- ITEM 2 -->
+            <div class="menu-card">
+                <img
+                    src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=700&q=80"
+                    alt="Fresh pasta dish">
+                <div class="menu-info">
+                    <div class="menu-heading">
+                        <h3>Creamy Pasta</h3>
+                        <span class="price">$10.50</span>
+                    </div>
+                    <p>Delicious pasta tossed in a creamy sauce with herbs and parmesan.</p>
+                </div>
+            </div>
+
+            <!-- ITEM 3 -->
+            <div class="menu-card">
+                <img
+                    src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=700&q=80"
+                    alt="Freshly baked pizza">
+                <div class="menu-info">
+                    <div class="menu-heading">
+                        <h3>Italian Pizza</h3>
+                        <span class="price">$12.00</span>
+                    </div>
+                    <p>Crispy crust, melted mozzarella, tomato sauce, and fresh toppings.</p>
+                </div>
+            </div>
+
+            <!-- ITEM 4 -->
+            <div class="menu-card">
+                <img
+                    src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80"
+                    alt="Fresh healthy salad">
+                <div class="menu-info">
+                    <div class="menu-heading">
+                        <h3>Garden Salad</h3>
+                        <span class="price">$6.50</span>
+                    </div>
+                    <p>Crisp greens, colorful vegetables, and a refreshing house dressing.</p>
+                </div>
+            </div>
+
+            <!-- ITEM 5 -->
+            <div class="menu-card">
+                <img
+                    src="https://plus.unsplash.com/premium_photo-1733259709671-9dbf22bf02cc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+                    alt="Delicious pizza with fresh toppings">
+                <div class="menu-info">
+                    <div class="menu-heading">
+                        <h3>Special Pizza</h3>
+                        <span class="price">$14.00</span>
+                    </div>
+                    <p>A house favorite topped with rich cheese, vegetables, and herbs.</p>
+                </div>
+            </div>
+
+            <!-- ITEM 6 -->
+            <div class="menu-card">
+                <img
+                    src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+                    alt="Healthy fresh food bowl">
+                <div class="menu-info">
+                    <div class="menu-heading">
+                        <h3>Healthy Bowl</h3>
+                        <span class="price">$9.00</span>
+                    </div>
+                    <p>A nourishing bowl of fresh vegetables, grains, and tasty toppings.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-banner" id="contact">
+        <h2>Hungry? We're Here for You!</h2>
+
+        <p>
+            Come visit us, give us a call, or email us.
+            Your next favorite meal is waiting!
+        </p>
+
+        <a href="mailto:hello@mamaskitchen.com" class="btn">
+            Contact Us Today
+        </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <h2>🍴 Mama's Kitchen</h2>
+
+        <p>📍 Main Street, Hargiesa</p>
+
+        <p>
+            📞 <a href="tel:+1234567890">+1 234 567 890</a>
+        </p>
+
+        <p>
+            ✉️ <a href="mailto:hello@mamaskitchen.com">
+                hello@mamaskitchen.com
+            </a>
+        </p>
+
+        <p>Opening Hours: Monday – Sunday, 6:00 AM – 10:00 PM</p>
+
+        <p class="copyright">
+            &copy; 2026 Mama's Kitchen. All rights reserved.
+        </p>
+    </footer>
+
+</body>
+</html>
