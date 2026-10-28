@@ -2,548 +2,931 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mama's Kitchen | Delicious Food</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mama's Kitchen | Fresh & Delicious</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fffaf3;
-            color: #30251f;
-            line-height: 1.6;
-        }
+:root {
+    --orange: #e85d3f;
+    --orange-dark: #c94428;
+    --cream: #fff9f2;
+    --dark: #29231f;
+    --muted: #746c65;
+    --green: #315b42;
+    --white: #ffffff;
+}
 
-        /* HEADER */
-        header {
-            background-color: #fff;
-            padding: 18px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.07);
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
 
-        .logo {
-            font-size: 27px;
-            font-weight: bold;
-            color: #e65b36;
-        }
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.7;
+}
 
-        nav a {
-            text-decoration: none;
-            color: #30251f;
-            margin-left: 25px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+a {
+    text-decoration: none;
+}
 
-        nav a:hover {
-            color: #e65b36;
-        }
+img {
+    max-width: 100%;
+    display: block;
+}
 
-        /* HERO */
-        .hero {
-            min-height: 540px;
-            display: flex;
-            align-items: center;
-            padding: 70px 8%;
-            background:
-                linear-gradient(90deg, rgba(35,24,17,0.85), rgba(35,24,17,0.15)),
-                url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1800&q=85");
-            background-size: cover;
-            background-position: center;
-            color: white;
-        }
+.container {
+    width: min(1120px, 88%);
+    margin: auto;
+}
 
-        .hero-content {
-            max-width: 600px;
-        }
+section {
+    padding: 90px 0;
+    scroll-margin-top: 90px;
+}
 
-        .hero-content .tag {
-            color: #ffd166;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
+/* NAVIGATION */
+header {
+    background: rgba(255, 249, 242, 0.97);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #eee4d9;
+    backdrop-filter: blur(12px);
+}
 
-        .hero h1 {
-            font-size: clamp(40px, 6vw, 68px);
-            line-height: 1.15;
-            margin: 18px 0;
-        }
+.navbar {
+    min-height: 78px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
 
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    font-weight: 800;
+    color: var(--orange);
+    white-space: nowrap;
+}
 
-        .btn {
-            display: inline-block;
-            background: #e65b36;
-            color: white;
-            padding: 13px 28px;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+.logo span {
+    color: var(--dark);
+}
 
-        .btn:hover {
-            background: #bd3f20;
-            transform: translateY(-2px);
-        }
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
 
-        /* GENERAL SECTIONS */
-        section {
-            padding: 75px 8%;
-        }
+.nav-links a {
+    color: var(--dark);
+    font-size: 14px;
+    font-weight: 700;
+    transition: color .25s;
+}
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+.nav-links a:hover {
+    color: var(--orange);
+}
 
-        .section-title span {
-            color: #e65b36;
-            text-transform: uppercase;
-            font-size: 13px;
-            font-weight: bold;
-            letter-spacing: 3px;
-        }
+.nav-links .nav-button {
+    background: var(--orange);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 30px;
+}
 
-        .section-title h2 {
-            font-size: 36px;
-            margin-top: 8px;
-        }
+.nav-links .nav-button:hover {
+    background: var(--orange-dark);
+    color: white;
+}
 
-        /* ABOUT */
-        .about {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
+/* HERO */
+.hero {
+    min-height: 590px;
+    display: flex;
+    align-items: center;
+    color: white;
+    background:
+        linear-gradient(90deg, rgba(30,24,19,.88), rgba(30,24,19,.18)),
+        url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1800&q=85')
+        center/cover;
+}
 
-        .about-image,
-        .about-text {
-            flex: 1;
-        }
+.hero-content {
+    max-width: 650px;
+    padding: 90px 0;
+}
 
-        .about-image img {
-            width: 100%;
-            height: 370px;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: 12px 12px 0 #ffd166;
-        }
+.eyebrow {
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: 700;
+}
 
-        .about-text h2 {
-            font-size: 36px;
-            margin-bottom: 18px;
-        }
+.hero .eyebrow {
+    color: #ffd18a;
+}
 
-        .about-text p {
-            color: #71645b;
-            margin-bottom: 18px;
-        }
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(43px, 6vw, 76px);
+    line-height: 1.12;
+    margin: 20px 0;
+}
 
-        .about-text .highlight {
-            color: #e65b36;
-            font-weight: bold;
-        }
+.hero h1 span {
+    color: #ffd18a;
+}
 
-        /* MENU */
-        .menu {
-            background: #fff0df;
-        }
+.hero p {
+    max-width: 500px;
+    color: #f1e9e1;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
 
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
+.btn {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    padding: 13px 25px;
+    border-radius: 30px;
+    font-weight: 700;
+    border: 2px solid var(--orange);
+    transition: .3s ease;
+    cursor: pointer;
+}
 
-        .menu-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-            transition: 0.3s;
-        }
+.btn:hover {
+    background: var(--orange-dark);
+    border-color: var(--orange-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(232,93,63,.25);
+}
 
-        .menu-card:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
-        }
+.btn-outline {
+    background: transparent;
+    border-color: rgba(255,255,255,.65);
+    margin-left: 10px;
+}
 
-        .menu-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-        }
+.btn-outline:hover {
+    background: white;
+    color: var(--dark);
+    border-color: white;
+}
 
-        .menu-info {
-            padding: 22px;
-        }
+/* SECTION HEADINGS */
+.section-heading {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 45px;
+}
 
-        .menu-heading {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-            align-items: center;
-            margin-bottom: 10px;
-        }
+.section-heading h2,
+.about-text h2,
+.contact-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 4vw, 43px);
+    line-height: 1.25;
+    margin: 12px 0;
+}
 
-        .menu-heading h3 {
-            font-size: 19px;
-        }
+.section-heading p,
+.about-text p {
+    color: var(--muted);
+}
 
-        .price {
-            color: #e65b36;
-            font-size: 19px;
-            font-weight: bold;
-            white-space: nowrap;
-        }
+/* MENU */
+.menu-section {
+    background: #fff0e3;
+}
 
-        .menu-info p {
-            color: #71645b;
-            font-size: 14px;
-        }
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
 
-        /* CONTACT BANNER */
-        .contact-banner {
-            text-align: center;
-            background: #e65b36;
-            color: white;
-            padding: 55px 8%;
-        }
+.menu-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 5px 22px rgba(45,33,22,.06);
+    transition: transform .3s, box-shadow .3s;
+}
 
-        .contact-banner h2 {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
+.menu-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 35px rgba(45,33,22,.12);
+}
 
-        .contact-banner p {
-            margin-bottom: 22px;
-        }
+.menu-card img {
+    width: 100%;
+    height: 225px;
+    object-fit: cover;
+    transition: transform .4s;
+}
 
-        .contact-banner .btn {
-            background: white;
-            color: #e65b36;
-        }
+.menu-card:hover img {
+    transform: scale(1.04);
+}
 
-        .contact-banner .btn:hover {
-            background: #fff0df;
-        }
+.menu-info {
+    padding: 22px;
+}
 
-        /* FOOTER */
-        footer {
-            background: #30251f;
-            color: #f8e9db;
-            text-align: center;
-            padding: 35px 8%;
-        }
+.menu-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+}
 
-        footer h2 {
-            color: #ffd166;
-            margin-bottom: 10px;
-        }
+.menu-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 9px;
+}
 
-        footer p {
-            margin: 6px 0;
-            font-size: 14px;
-        }
+.price {
+    color: var(--orange);
+    font-weight: 700;
+    white-space: nowrap;
+}
 
-        footer a {
-            color: #ffd166;
-            text-decoration: none;
-        }
+.menu-info p {
+    color: var(--muted);
+    font-size: 14px;
+}
 
-        footer .copyright {
-            margin-top: 22px;
-            padding-top: 18px;
-            border-top: 1px solid #57473d;
-            color: #c5b6aa;
-        }
+/* ABOUT */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    align-items: center;
+}
 
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 900px) {
-            .menu-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+.about-image {
+    position: relative;
+}
 
-            .about {
-                gap: 30px;
-            }
-        }
+.about-image img {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    border-radius: 22px;
+}
 
-        @media (max-width: 600px) {
-            header {
-                flex-direction: column;
-                gap: 12px;
-                padding: 15px 5%;
-            }
+.about-badge {
+    position: absolute;
+    right: -18px;
+    bottom: 25px;
+    background: var(--green);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,.12);
+}
 
-            .logo {
-                font-size: 24px;
-            }
+.about-badge strong {
+    display: block;
+    font-size: 28px;
+    font-family: 'Playfair Display', serif;
+}
 
-            nav {
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 12px;
-            }
+.about-text p {
+    margin: 15px 0;
+}
 
-            nav a {
-                margin: 0;
-                font-size: 14px;
-            }
+.about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 25px 0;
+}
 
-            .hero {
-                min-height: 480px;
-                padding: 55px 6%;
-            }
+.feature {
+    background: #fff0e3;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+}
 
-            section {
-                padding: 55px 6%;
-            }
+.feature span {
+    color: var(--orange);
+    margin-right: 5px;
+}
 
-            .about {
-                flex-direction: column;
-            }
+/* TEAM */
+.team-section {
+    background: white;
+}
 
-            .about-image,
-            .about-text {
-                width: 100%;
-            }
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
 
-            .about-image img {
-                height: 280px;
-            }
+.team-card {
+    text-align: center;
+    padding: 25px;
+    background: var(--cream);
+    border-radius: 18px;
+    transition: transform .3s;
+}
 
-            .section-title h2,
-            .about-text h2 {
-                font-size: 29px;
-            }
+.team-card:hover {
+    transform: translateY(-6px);
+}
 
-            .menu-grid {
-                grid-template-columns: 1fr;
-            }
+.team-card img {
+    width: 115px;
+    height: 115px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 18px;
+    border: 4px solid #f6d6bd;
+}
 
-            .menu-card img {
-                height: 230px;
-            }
-        }
-    </style>
+.team-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+}
+
+.team-card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* CONTACT */
+.contact-section {
+    background: #fff0e3;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 45px;
+    align-items: start;
+}
+
+.contact-info p {
+    color: var(--muted);
+    margin: 12px 0;
+}
+
+.contact-detail {
+    margin-top: 24px;
+}
+
+.contact-detail div {
+    margin-bottom: 18px;
+}
+
+.contact-detail strong {
+    display: block;
+    color: var(--dark);
+}
+
+.contact-detail a {
+    color: var(--orange-dark);
+}
+
+/* GOOGLE MAP */
+.google-map {
+    width: 100%;
+    margin-top: 30px;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.12);
+    background: #e8e8e8;
+}
+
+.google-map iframe {
+    display: block;
+    width: 100%;
+    height: 350px;
+    border: 0;
+}
+
+/* CONTACT FORM */
+.contact-form {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 28px rgba(45,33,22,.06);
+}
+
+.contact-form h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 13px 14px;
+    font: inherit;
+    font-size: 14px;
+    border: 1px solid #e7ded5;
+    border-radius: 10px;
+    outline: none;
+    background: #fffdfb;
+    transition: border .2s, box-shadow .2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(232,93,63,.12);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 125px;
+}
+
+.contact-form button {
+    width: 100%;
+    font: inherit;
+}
+
+/* FOOTER */
+footer {
+    background: #29231f;
+    color: #e9ded4;
+    padding: 40px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    padding-bottom: 25px;
+}
+
+footer .logo {
+    color: #ff977b;
+}
+
+footer .logo span {
+    color: white;
+}
+
+footer p {
+    font-size: 14px;
+    color: #c9bcb1;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #e9ded4;
+    font-size: 14px;
+    transition: color .2s;
+}
+
+.footer-links a:hover {
+    color: #ff977b;
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid #4b4038;
+    padding-top: 18px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 850px) {
+    .nav-links {
+        gap: 15px;
+    }
+
+    .about-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .menu-grid,
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-badge {
+        right: 12px;
+    }
+}
+
+@media (max-width: 560px) {
+    .container {
+        width: 90%;
+    }
+
+    section {
+        padding: 65px 0;
+    }
+
+    .navbar {
+        padding: 15px 0;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .nav-links .nav-button {
+        padding: 7px 12px;
+    }
+
+    .hero {
+        min-height: 500px;
+        background-position: 58% center;
+    }
+
+    .hero-content {
+        padding: 65px 0;
+    }
+
+    .hero h1 {
+        font-size: 46px;
+    }
+
+    .btn {
+        padding: 11px 18px;
+        font-size: 14px;
+    }
+
+    .btn-outline {
+        margin: 10px 0 0;
+    }
+
+    .menu-grid,
+    .team-grid,
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-card img {
+        height: 230px;
+    }
+
+    .about-image img {
+        height: 320px;
+    }
+
+    .contact-form {
+        padding: 22px;
+    }
+
+    .google-map iframe {
+        height: 280px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <div class="logo">🍴 Mama's Kitchen</div>
+<!-- HEADER -->
+<header>
+    <div class="container navbar">
+        <a href="#home" class="logo">🍴 Mama's <span>Kitchen</span></a>
 
-        <nav>
+        <nav class="nav-links">
             <a href="#home">Home</a>
-            <a href="#about">About</a>
             <a href="#menu">Menu</a>
-            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+            <a href="#team">Our Team</a>
+            <a href="#contact" class="nav-button">Contact Us</a>
         </nav>
-    </header>
+    </div>
+</header>
 
-    <!-- HERO SECTION -->
-    <section class="hero" id="home">
+<main>
+
+<!-- HOME -->
+<section class="hero" id="home">
+    <div class="container">
         <div class="hero-content">
-            <p class="tag">Fresh • Tasty • Homemade</p>
-
-            <h1>Good Food.<br>Good Mood.</h1>
-
+            <div class="eyebrow">Welcome to Mama's Kitchen</div>
+            <h1>Real Food.<br><span>Made with Love.</span></h1>
             <p>
-                Welcome to Mama's Kitchen, where every meal is made
-                with love, fresh ingredients, and a little taste of home.
+                Fresh ingredients, unforgettable flavors, and warm hospitality.
+                Come hungry and leave happy.
             </p>
-
             <a href="#menu" class="btn">Explore Our Menu →</a>
+            <a href="#about" class="btn btn-outline">Our Story</a>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- ABOUT SECTION -->
-    <section class="about" id="about">
-
-        <div class="about-image">
-            <img
-                src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=900&q=85"
-                alt="Fresh ingredients prepared in a kitchen">
-        </div>
-
-        <div class="about-text">
-            <p class="highlight">A LITTLE ABOUT US</p>
-
-            <h2>Made with Love, Served with Joy ❤️</h2>
-
-            <p>
-                At Mama's Kitchen, we believe great food brings people
-                together. Our journey started with a simple passion:
-                serving delicious meals that make everyone feel at home.
-            </p>
-
-            <p>
-                From fresh ingredients to carefully prepared recipes,
-                every dish is made with quality, flavor, and happiness
-                in mind. Come hungry and leave with a smile!
-            </p>
-
-            <a href="#menu" class="btn">Discover Our Food</a>
-        </div>
-
-    </section>
-
-    <!-- MENU SECTION -->
-    <section class="menu" id="menu">
-
-        <div class="section-title">
-            <span>Our Specialties</span>
-            <h2>Explore Our Menu 🍽️</h2>
-            <p>Delicious favorites, freshly prepared just for you.</p>
+<!-- MENU -->
+<section class="menu-section" id="menu">
+    <div class="container">
+        <div class="section-heading">
+            <div class="eyebrow">Fresh from Our Kitchen</div>
+            <h2>Our Popular Dishes</h2>
+            <p>Simple ingredients, delicious recipes, and flavors worth coming back for.</p>
         </div>
 
         <div class="menu-grid">
 
-            <!-- ITEM 1 -->
-            <div class="menu-card">
-                <img
-                    src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
-                    alt="Juicy beef burger">
+            <article class="menu-card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58bd?auto=format&fit=crop&w=800&q=85" alt="Classic beef burger">
                 <div class="menu-info">
-                    <div class="menu-heading">
+                    <div class="menu-top">
                         <h3>Classic Burger</h3>
                         <span class="price">$8.99</span>
                     </div>
-                    <p>Juicy beef, fresh lettuce, tomato, cheese, and our special sauce.</p>
+                    <p>Juicy beef, melted cheese, fresh lettuce, and our signature sauce.</p>
                 </div>
-            </div>
+            </article>
 
-            <!-- ITEM 2 -->
-            <div class="menu-card">
-                <img
-                    src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=700&q=80"
-                    alt="Fresh pasta dish">
+            <article class="menu-card">
+                <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=85" alt="Fresh pasta">
                 <div class="menu-info">
-                    <div class="menu-heading">
+                    <div class="menu-top">
                         <h3>Creamy Pasta</h3>
                         <span class="price">$10.50</span>
                     </div>
-                    <p>Delicious pasta tossed in a creamy sauce with herbs and parmesan.</p>
+                    <p>Tender pasta with creamy sauce, herbs, and parmesan.</p>
                 </div>
-            </div>
+            </article>
 
-            <!-- ITEM 3 -->
-            <div class="menu-card">
-                <img
-                    src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=700&q=80"
-                    alt="Freshly baked pizza">
+            <article class="menu-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=85" alt="Italian pizza">
                 <div class="menu-info">
-                    <div class="menu-heading">
+                    <div class="menu-top">
                         <h3>Italian Pizza</h3>
                         <span class="price">$12.00</span>
                     </div>
-                    <p>Crispy crust, melted mozzarella, tomato sauce, and fresh toppings.</p>
+                    <p>Golden crust, rich tomato sauce, mozzarella, and fresh toppings.</p>
                 </div>
-            </div>
+            </article>
 
-            <!-- ITEM 4 -->
-            <div class="menu-card">
-                <img
-                    src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80"
-                    alt="Fresh healthy salad">
+            <article class="menu-card">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=85" alt="Fresh salad">
                 <div class="menu-info">
-                    <div class="menu-heading">
+                    <div class="menu-top">
                         <h3>Garden Salad</h3>
                         <span class="price">$6.50</span>
                     </div>
-                    <p>Crisp greens, colorful vegetables, and a refreshing house dressing.</p>
+                    <p>Crunchy greens, seasonal vegetables, and refreshing dressing.</p>
                 </div>
-            </div>
+            </article>
 
-            <!-- ITEM 5 -->
-            <div class="menu-card">
-                <img
-                    src="https://plus.unsplash.com/premium_photo-1733259709671-9dbf22bf02cc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
-                    alt="Delicious pizza with fresh toppings">
+            <article class="menu-card">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=85" alt="Grilled meat">
                 <div class="menu-info">
-                    <div class="menu-heading">
-                        <h3>Special Pizza</h3>
+                    <div class="menu-top">
+                        <h3>Grilled Special</h3>
                         <span class="price">$14.00</span>
                     </div>
-                    <p>A house favorite topped with rich cheese, vegetables, and herbs.</p>
+                    <p>Flavorful grilled meat with fresh herbs and delicious sides.</p>
                 </div>
-            </div>
+            </article>
 
-            <!-- ITEM 6 -->
-            <div class="menu-card">
-                <img
-                    src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
-                    alt="Healthy fresh food bowl">
+            <article class="menu-card">
+                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=85" alt="Healthy food bowl">
                 <div class="menu-info">
-                    <div class="menu-heading">
+                    <div class="menu-top">
                         <h3>Healthy Bowl</h3>
                         <span class="price">$9.00</span>
                     </div>
-                    <p>A nourishing bowl of fresh vegetables, grains, and tasty toppings.</p>
+                    <p>A colorful mix of fresh vegetables, grains, and tasty toppings.</p>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="container about-grid">
+
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1000&q=85" alt="Welcoming kitchen">
+            <div class="about-badge">
+                <strong>Fresh</strong>
+                Every Single Day
+            </div>
+        </div>
+
+        <div class="about-text">
+            <div class="eyebrow">Our Story</div>
+            <h2>A Little Taste of Home</h2>
+            <p>
+                Mama's Kitchen began with a simple idea: good food should bring
+                people closer together. Inspired by home cooking and the joy of
+                sharing a meal, we created a welcoming place for everyone.
+            </p>
+            <p>
+                Our kitchen focuses on fresh ingredients, carefully prepared
+                dishes, and friendly service. Every plate is an opportunity
+                to make someone's day a little better.
+            </p>
+
+            <div class="about-features">
+                <div class="feature"><span>✓</span> Fresh Ingredients</div>
+                <div class="feature"><span>✓</span> Made with Care</div>
+                <div class="feature"><span>✓</span> Friendly Service</div>
+                <div class="feature"><span>✓</span> Family Atmosphere</div>
+            </div>
+
+            <a href="#contact" class="btn">Come Visit Us →</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- OUR TEAM -->
+<section class="team-section" id="team">
+    <div class="container">
+        <div class="section-heading">
+            <div class="eyebrow">The People Behind the Food</div>
+            <h2>Meet Our Team</h2>
+            <p>A passionate team working together to make every visit special.</p>
+        </div>
+
+        <div class="team-grid">
+            <article class="team-card">
+                <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&w=400&q=80" alt="Restaurant chef">
+                <h3>Head Chef</h3>
+                <p>Creating memorable dishes with care, skill, and fresh ingredients.</p>
+            </article>
+
+            <article class="team-card">
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80" alt="Restaurant team member">
+                <h3>Service Team</h3>
+                <p>Making every guest feel welcome from the moment they arrive.</p>
+            </article>
+
+            <article class="team-card">
+                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=400&q=80" alt="Management team">
+                <h3>Management</h3>
+                <p>Keeping quality, hospitality, and customer happiness at the heart of our work.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+    <div class="container contact-grid">
+
+        <div class="contact-info">
+            <div class="eyebrow">Get in Touch</div>
+            <h2>We'd Love to Hear from You</h2>
+            <p>
+                Have a question, want to book a table, or need more information?
+                Send us a message or visit us.
+            </p>
+
+            <div class="contact-detail">
+                <div>
+                    <strong>📍 Our Address</strong>
+                    <p>Hargeisa, Somaliland</p>
+                </div>
+
+                <div>
+                    <strong>📞 Phone</strong>
+                    <p><a href="tel:+1234567890">+1 234 567 890</a></p>
+                </div>
+
+                <div>
+                    <strong>✉️ Email</strong>
+                    <p><a href="mailto:hello@mamaskitchen.com">hello@mamaskitchen.com</a></p>
+                </div>
+
+                <div>
+                    <strong>🕒 Opening Hours</strong>
+                    <p>Monday – Sunday: 9:00 AM – 10:00 PM</p>
                 </div>
             </div>
 
+            <!-- GOOGLE MAP: HARGEISA -->
+            <div class="google-map">
+                <iframe
+                    src="https://maps.google.com/maps?q=Hargeisa%2C%20Somaliland&z=13&output=embed"
+                    width="100%"
+                    height="350"
+                    style="border:0;"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Google Map - Hargeisa, Somaliland">
+                </iframe>
+            </div>
+
         </div>
-    </section>
 
-    <!-- CONTACT SECTION -->
-    <section class="contact-banner" id="contact">
-        <h2>Hungry? We're Here for You!</h2>
+        <!-- CONTACT FORM -->
+        <form class="contact-form" action="mailto:hello@mamaskitchen.com" method="post" enctype="text/plain">
+            <h3>Send Us a Message</h3>
 
-        <p>
-            Come visit us, give us a call, or email us.
-            Your next favorite meal is waiting!
-        </p>
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="Name" placeholder="Enter your name" required>
+            </div>
 
-        <a href="mailto:hello@mamaskitchen.com" class="btn">
-            Contact Us Today
-        </a>
-    </section>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="Email" placeholder="you@example.com" required>
+            </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <h2>🍴 Mama's Kitchen</h2>
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="Message" placeholder="How can we help you?" required></textarea>
+            </div>
 
-        <p>📍 Main Street, Hargiesa</p>
+            <button type="submit" class="btn">Send Message →</button>
+        </form>
 
-        <p>
-            📞 <a href="tel:+1234567890">+1 234 567 890</a>
-        </p>
+    </div>
+</section>
 
-        <p>
-            ✉️ <a href="mailto:hello@mamaskitchen.com">
-                hello@mamaskitchen.com
-            </a>
-        </p>
+</main>
 
-        <p>Opening Hours: Monday – Sunday, 6:00 AM – 10:00 PM</p>
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+
+            <div>
+                <a href="#home" class="logo">🍴 Mama's <span>Kitchen</span></a>
+                <p>Good food, warm hearts, happy moments.</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#menu">Menu</a>
+                <a href="#about">About</a>
+                <a href="#team">Our Team</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+        </div>
 
         <p class="copyright">
             &copy; 2026 Mama's Kitchen. All rights reserved.
         </p>
-    </footer>
+    </div>
+</footer>
 
 </body>
 </html>
